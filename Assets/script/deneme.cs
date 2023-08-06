@@ -7,12 +7,26 @@ public class deneme : MonoBehaviour
    
     
 
-        public float rotationSpeed = 30f; // Nesnenin dönme hýzý
+       
+    public float moveSpeed = 5.0f;
 
-        void Update()
-        {
-            // Nesneyi her frame'de y ekseninde belirtilen hýzda döndür
-            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-        }
-    
+    void Update()
+    {
+        
+        float verticalInput = Input.GetAxis("Vertical");
+
+      
+        Vector3 movement = transform.forward * verticalInput * moveSpeed * Time.deltaTime;
+
+       
+        transform.position += movement;
+    }
 }
+
+
+
+
+
+
+    
+
